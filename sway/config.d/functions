@@ -1,0 +1,25 @@
+#
+# Volume
+#
+    bindsym --to-code --locked XF86AudioRaiseVolume exec pamixer -ui 5
+    bindsym --to-code --locked XF86AudioLowerVolume exec pamixer -ud 5
+    bindsym --to-code --locked XF86AudioMute exec pamixer -t
+    bindsym --to-code --locked $mod+XF86AudioRaiseVolume exec pamixer -ui 5
+    bindsym --to-code --locked $mod+XF86AudioLowerVolume exec pamixer -ud 5
+    bindsym --to-code --locked $mod+XF86AudioMute exec pamixer -t
+
+#
+# Player
+#
+    bindsym --to-code XF86AudioPlay exec playerctl play
+    bindsym --to-code XF86AudioPause exec playerctl pause
+    bindsym --to-code XF86AudioNext exec playerctl next
+    bindsym --to-code XF86AudioPrev exec playerctl previous
+
+#
+# Backlight
+#
+    bindsym --to-code --locked XF86MonBrightnessUp exec brightnessctl -c backlight -e2 set +5%
+    bindsym --to-code --locked XF86MonBrightnessDown exec brightnessctl -c backlight -e2 set 5%-
+    bindsym --to-code --locked $mod+XF86MonBrightnessUp exec brightnessctl -c backlight -e2 set +5%
+    bindsym --to-code --locked $mod+XF86MonBrightnessDown exec brightnessctl -c backlight -e2 set 5%-

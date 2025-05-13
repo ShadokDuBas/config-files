@@ -1,0 +1,16 @@
+### Input configuration
+#
+# Read `man 5 sway-input` for more information.
+
+input type:touchpad {
+    dwt enabled
+    tap disabled
+    natural_scroll enabled
+    accel_profile adaptive
+}
+
+input type:keyboard {
+    xkb_layout "custom"
+    xkb_options "compose:102"
+    xkb_options "caps:swapescape"
+}

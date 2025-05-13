@@ -1,0 +1,13 @@
+# bindsym --to-code $mod+o opacity 0.8
+# bindsym --to-code $mod+Shift+o opacity 0.95
+
+# bindsym $mod+d  exec ~/.config/sway/scripts/test.sh; mode "test"
+#bindsym --release $mod+d  exec $term mode "test"
+
+
+# mode "test" {
+  # bindsym --to-code Return mode "default"
+  # bindsym Super_L opacity 0.8
+# }
+#
+

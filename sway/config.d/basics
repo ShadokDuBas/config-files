@@ -1,0 +1,22 @@
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+
+# Your preferred terminal emulators
+set $term footclient
+
+
+
+
+#
+# Basics:
+#
+# Start a terminal
+bindsym --to-code $mod+Return exec $term
+
+
+
+# Reload the configuration file
+bindsym --to-code $mod+Shift+c reload
+
+# open leader mode
+bindsym Escape+Shift mode "leader"

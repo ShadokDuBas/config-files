@@ -1,0 +1,85 @@
+set $powermenu ~/.config/sway/scripts/power-menu.sh
+
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+set $menu wofi -c ~/.config/wofi/config -I
+
+mode "leader" {
+  bindsym Space mode "default"
+  ## Lock Screen
+  bindsym l mode "default", exec ~/.config/sway/scripts/lockman.sh
+  bindsym Shift+l mode "default"; \
+  exec 'grim - > /tmp/lockpaper; ~/.config/sway/scripts/lockimg.sh'; \
+
+
+  # bindsym --to-code $mod+f2 exec 'systemctl suspend'
+  
+  # Open the power menu
+  bindsym p mode "default", exec $powermenu
+  # Shut down immediately
+  bindsym Shift+p mode "default", exec "systemctl poweroff"
+
+  # Kill focused window
+  bindsym q mode "default", kill
+  bindsym Shift+q kill
+
+  # Start your launcher
+  bindsym e mode "default", exec $menu
+
+  # Screenshot
+  bindsym s mode "default", exec 'grim - | wl-copy'
+  bindsym s+Shift mode "default", exec 'grim -g "$(slurp -d)" - | wl-copy'
+
+  # QR Code
+  bindsym c mode "default", exec 'wl-paste | qrencode -o - | swayimg - -f'
+  
+  # Changer le workspace d’output
+  # T comme télé;
+  bindsym t mode "default", move workspace to output right
+
+  # Move your focus around
+  bindsym --to-code Left focus left
+  bindsym --to-code Down focus down
+  bindsym --to-code Up focus up
+  bindsym --to-code Right focus right
+  
+  # Move the focused window with the same, but add Shift
+  bindsym --to-code Shift+Left move left
+  bindsym --to-code Shift+Down move down
+  bindsym --to-code Shift+Up move up
+  bindsym --to-code Shift+Right move right
+
+  # Switch to workspace
+  bindsym --to-code 1 workspace number 1
+  bindsym --to-code 2 workspace number 2
+  bindsym --to-code 3 workspace number 3
+  bindsym --to-code 4 workspace number 4
+  bindsym --to-code 5 workspace number 5
+  bindsym --to-code 6 workspace number 6
+  bindsym --to-code 7 workspace number 7
+  bindsym --to-code 8 workspace number 8
+  bindsym --to-code 9 workspace number 9
+  bindsym --to-code 0 workspace number 10
+
+  # Move focused container to workspace
+  bindsym --to-code Shift+1 move container to workspace number 1
+  bindsym --to-code Shift+2 move container to workspace number 2
+  bindsym --to-code Shift+3 move container to workspace number 3
+  bindsym --to-code Shift+4 move container to workspace number 4
+  bindsym --to-code Shift+5 move container to workspace number 5
+  bindsym --to-code Shift+6 move container to workspace number 6
+  bindsym --to-code Shift+7 move container to workspace number 7
+  bindsym --to-code Shift+8 move container to workspace number 8
+  bindsym --to-code Shift+9 move container to workspace number 9
+  bindsym --to-code Shift+0 move container to workspace number 10
+  # Note: workspaces can have any name you want, not just numbers.
+  # We just use 1-10 as the default.
+
+
+  # Window management mode
+  bindsym w mode "window"
+
+  # "open" mode
+  bindsym o mode "open"
+}

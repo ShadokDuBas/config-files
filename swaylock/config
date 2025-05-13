@@ -1,0 +1,26 @@
+indicator-caps-lock
+image=$HOME/.config/swaylock/bg.png
+scaling=fill
+font="Fira Mono Nerd Font"
+font-size=20
+
+# Ring
+indicator-radius=115
+indicator-thickness=15
+inside-color=#22222299
+inside-clear-color=#22222299
+inside-ver-color=#22222299
+inside-wrong-color=#22222299
+inside-caps-lock-color=#55222299
+line-color=#ffcc00
+line-clear-color=#ffcc00
+line-caps-lock-color=#ffcc00
+line-ver-color=#ffcc00
+line-wrong-color=#ffcc00
+ring-clear-color=#111111
+ring-caps-lock-color=#885555
+text-color=#cccccc
+text-clear-color=#cccccc
+text-ver-color=#cccccc
+text-caps-lock-color=#cc3333
+text-wrong-color=#cc3333

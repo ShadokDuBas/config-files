@@ -1,0 +1,64 @@
+# Apply gtk theming
+exec_always ~/.config/sway/scripts/import-gsettings
+
+# Borders
+default_border pixel 5
+smart_borders on
+hide_edge_borders both
+
+
+# Gaps
+gaps inner 10
+gaps outer 10
+
+# Titlebar
+titlebar_border_thickness 0
+titlebar_padding 0 3
+title_align center
+
+# Tiling
+default_orientation auto
+
+# Default Font
+font Iosevka Aile Bold 14
+
+# Set wallpaper:
+exec swaybg -i ~/.config/sway/bg.png
+
+# Title format for windows
+#for_window [shell="xdg_shell"] title_format "%title (%app_id)"
+for_window [shell="x_wayland"] title_format "%class - %title"
+
+set $dark   #111111
+set $adark  #11111166
+set $aadark #111111AA
+set $transp #11111100
+set $gray   #777777
+set $white  #FFFFFF
+set $color  #FFBB00
+set $urgent #EE1100
+
+# class                  border  bground text    indicator child_border
+#client.focused           $adark  $adark  $color  $color    $color
+#client.unfocused         $aadark $aadark $gray   $dark     $transp
+#client.focused_inactive  $adark  $adark  $white  $dark     $transp
+#client.urgent            $urgent $urgent $white  $urgent   $urgent
+
+client.focused            #8ec07c #68946a #fbf1c7 #68966a #8ec07c
+client.focused_inactive   #689d6a #8ec07c #fbf1c7 #8ec07c #689d6a
+client.unfocused          #689d6a #8ec07c #fbf1c7 #8ec07c #689d6a
+client.urgent             #fb4943 #282828 #fbf1c7 #282828 #fb4943
+client.placeholder        #1d2021 #282828 #fbf1c7 #282828 #1d2021
+
+
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+    swaybar_command waybar
+    # hidden_state show
+    # Does not seem to work
+    # font "FiraMono Nerd Font" 14
+    # mode hide
+}

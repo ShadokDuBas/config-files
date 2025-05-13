@@ -1,0 +1,32 @@
+set $firefox "firefox -new-window"
+set $firefoxP "firefox -private-window"
+set $tb "thunderbird"
+set $discord "discord"
+set $keepassxc "keepassxc"
+set $steam "steam"
+set $nemo "nemo"
+
+
+
+mode "open" {
+  bindsym Space mode "default"
+
+  # Firefox
+  bindsym f mode "default", exec $firefox
+  bindsym Shift+f mode "default", exec $firefoxP
+
+  # Thunderbird
+  bindsym t mode "default", exec $tb
+
+  # Discord
+  bindsym d mode "default", exec $discord
+
+  # Keepass
+  bindsym k mode "default", exec $keepassxc
+
+  # Steam
+  bindsym s mode "default", exec $steam
+
+  # nemo
+  bindsym n mode "default", exec $nemo
+}
