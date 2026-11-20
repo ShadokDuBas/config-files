@@ -2,7 +2,8 @@
 set $mod Mod4
 
 # Your preferred terminal emulators
-set $term footclient
+# set $term footclient
+set $term alacritty
 
 
 

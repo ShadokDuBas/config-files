@@ -26,8 +26,8 @@
   ],
   "modules-right": [
     "sway/scratchpad",
+    "idle_inhibitor",
     "backlight",
-    // "idle_inhibitor",
     "pulseaudio",
     "clock",
     // "power-profiles-daemon",

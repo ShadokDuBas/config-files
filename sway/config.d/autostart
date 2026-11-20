@@ -5,15 +5,15 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec foot -s
 
 # Fish style
-exec 'fish ~/.config/fish/conf.d/kanawaga_theme
+# exec 'fish ~/.config/fish/conf.d/kanawaga_theme
 
 # Desktop notifications
-exec mako
+# exec mako
 
 # redshift
-exec gammastep -PO 3500
+exec gammastep -PO 3800
 # Network Applet
-exec nm-applet --indicator
+# exec nm-applet --indicator
 
 # GTK3 applications take a long time to start
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK

@@ -10,7 +10,9 @@ input type:touchpad {
 }
 
 input type:keyboard {
-    xkb_layout "custom"
+#     # xkb_layout "custom"
+    xkb_layout "fr"
+    xkb_variant "ergol"
     xkb_options "compose:102"
     xkb_options "caps:swapescape"
-}
+# }
