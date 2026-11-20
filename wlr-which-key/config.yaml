@@ -1,0 +1,102 @@
+# Theming
+font: DejaVu Sans 12
+background: "#282828d0"
+color: "#fbf1c7"
+border: "#8ec07c"
+separator: " ➜ "
+border_width: 2
+corner_r: 10
+padding: 15 # Defaults to corner_r
+rows_per_column: 5 # No limit by default
+column_padding: 25 # Defaults to padding
+
+# Anchor and margin
+anchor: bottom-right # One of center, left, right, top, bottom, bottom-left, top-left, etc.
+# Only relevant when anchor is not center
+margin_right: 20
+margin_bottom: 20
+margin_left: 0
+margin_top: 0
+
+
+# Permits key bindings that conflict with compositor key bindings.
+# Default is `false`.
+inhibit_compositor_keyboard_shortcuts: true
+
+# Try to guess the correct keyboard layout to use. Default is `false`.
+auto_kbd_layout: true
+
+menu:
+  - key: "P"
+    desc: Shutdown
+    cmd: systemctl poweroff
+  - key: "p"
+    desc: Power
+    submenu:
+      - key: "s"
+        desc: Sleep
+        cmd: systemctl suspend
+      - key: "r"
+        desc: Reboot
+        cmd: reboot
+      - key: "o"
+        desc: Off
+        cmd: poweroff
+      - key: "l"
+        desc: Laptop screen
+        cmd: "~/.config/niri/scripts/toggle-screen.nu"
+  - key: "o"
+    desc: Open
+    submenu:
+    - key: "f"
+      desc: firefox
+      cmd: firefox -new-window
+    - key: "F"
+      desc: firefox (private)
+      cmd: firefox -private-window
+    - key: "d"
+      desc: discord
+      cmd: discord
+    - key: "k"
+      desc: keepass
+      cmd: keepassxc
+    - key: "s"
+      desc: steam
+      cmd: steam
+  - key: "l"
+    desc: lock
+    cmd: swaylock
+  - key: "L"
+    desc: lock-img
+    cmd: ~/.config/niri/scripts/niri-img-lock.sh
+  - key: "e"
+    desc: Execute
+    cmd: wofi
+  - key: "s"
+    desc: screenshot
+    cmd: "grim - | wl-copy"
+  - key: "S"
+    desc: Select screenshot
+    cmd: 'grim -g "$(slurp -d)" - | wl-copy'
+  - key: "c"
+    desc: "[c]ouriel"
+    cmd: 'mailsync'
+  - key: "C"
+    desc: QR-[C]ode
+    cmd: 'wl-paste | qrencode -o - | swayimg -'
+  - key: "m"
+    desc: "[M]onitor focus"
+    cmd: "niri msg action focus-monitor-next"
+  - key: "M"
+    desc: "[M]onitor switch"
+    cmd: "niri msg action move-workspace-to-monitor-next"
+  - key: "q"
+    desc: "kill"
+    cmd: "niri msg action close-window"
+  - key: "Q"
+    desc: "KILL"
+    keep_open: true
+    cmd: "niri msg action close-window"
+  - key: "n"
+    desc: "[n]eovim"
+    cmd: "/home/vincent/.config/niri/scripts/go-neovim.nu"
