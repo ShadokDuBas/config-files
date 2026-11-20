@@ -1,0 +1,203 @@
+// adapted from https://github.com/auralisx/dotfiles
+[
+  {
+    "name": "topbar",
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    // "mode": "dock",
+    // "exclusive": true,
+    "spacing": 4,
+    // "passthrough": false,
+    // "gtk-layer-shell": true,
+    // "reload_style_on_change": true,
+    // "modules-left": [
+    //   "clock",
+    //   "bluetooth",
+    //   "network",
+    //   "privacy"
+    //   // "hyprland/submap",
+    // ],
+  "modules-left": [
+    "cpu",
+    "memory",
+    "network",
+    "bluetooth",
+    // "sway/scratchpad"
+    //custom/spotify,
+    // "sway/mode",
+    // "niri/window",
+    "tray"
+  ],
+    "modules-center": ["niri/workspaces"],
+    "modules-right": [
+      "idle_inhibitor",
+      "backlight",
+      "pulseaudio",
+      "clock",
+      "battery",
+    ],
+    "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+        "activated": "",
+        "deactivated": ""
+      }
+    },
+    "tray": {
+      "icon-size": 18,
+      "spacing": 10
+    },
+    "clock": {
+      //     // "timezone": "America/New_York",
+      //     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+      // "format": "{:%A, %B %d at %I:%M %p}",
+      "format-alt": "{:%Y-%m-%d}"
+    },
+    "cpu": {
+      "format": "{usage}% ",
+      // "format": "cpu : {usage}%",
+      "tooltip": false
+    },
+    "memory": {
+      "format": "{}% "
+      // "format": "mem : {}%"
+    },
+    "temperature": {
+      // "thermal-zone": 2,
+      // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+      "critical-threshold": 80,
+      // "format-critical": "{temperatureC}°C {icon}",
+      "format": "{temperatureC}°C {icon}",
+      // "format-icons": ["", "", ""]
+      "format-icons": [""]
+    },
+    "backlight": {
+      // "device": "acpi_video1",
+      "format": "{percent}% {icon}",
+      "format-icons": ["🌑", "🌘", "🌗", "🌖", "🌕"],
+      "on-scroll-up": "brightnessctl -c backlight set +1%",
+      "on-scroll-down": "brightnessctl -c backlight set 1%-",
+      "on-click": "brightnessctl -c backlight set +4%",
+      "on-click-right": "brightnessctl -c backlight set 4%-",
+      // DONE : brightnessctl a besoin des accès root pour fonctionner
+      // donnés avec `sudo usermod -aG video ${USER}`
+    },
+    "battery": {
+      "states": {
+        "good": 95,
+        "warning": 30,
+        "critical": 15
+      },
+      "format": "{capacity}% {icon} ",
+      // "format-full": "{capacity}% {icon}",
+      "format-full": "Chargé !",
+      // "format-charging": "{capacity}% ",
+      "format-charging": "{capacity}%  ",
+      "format-plugged": "{capacity}%  ",
+      "format-alt": "{time} {icon}",
+      // "format-good": "", // An empty format will hide the module
+      // "format-full": "",
+      "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+      // "interface": "wlp2*", // (Optional) To force the use of this interface
+      // "format-wifi": "{essid} ({signalStrength}%)",
+      "format-wifi": "{essid} ({signalStrength}%) ",
+      // "format-ethernet": "{ipaddr}/{cidr} ",
+      "format-ethernet": "{ipaddr}/{cidr}",
+      // "tooltip-format": "{ifname} via {gwaddr} ",
+      "tooltip-format": "{ifname} via {gwaddr}",
+      // "format-linked": "{ifname} (No IP) ",
+      "format-linked": "{ifname} (No IP)",
+      "format-disconnected": "Disconnected ⚠",
+      // "format-disconnected": "Disconnected",
+      "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "bluetooth": {
+      "format":"Bluetooth : {status}",
+      "format":" {status}",
+      // "on-click" TODO,
+    },
+    "pulseaudio": {
+      "scroll-step": 1, // %, can be a float
+      "format": "{volume}% {icon} | {format_source}",
+      // "format": "Audio : {volume}%",
+      "tooltip":false,
+      "on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
+      // "format-bluetooth": "{volume}% {icon} {format_source}",
+      // "format-bluetooth-muted": " {icon} {format_source}",
+      // "format-muted": " {format_source}",
+      "format-muted": "Muet | {format_source}",
+      "format-source": "{volume}% ",
+      "format-source-muted": "",
+      "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", "", ""]
+      },
+      "on-click-right": "pavucontrol"
+    },
+    // Modules configuration
+    "niri/window": {
+      "format": "{}",
+      "max-length": 50,
+      // "separate-outputs": true,
+    },
+    "privacy": {
+      "icon-spacing": 4,
+      "icon-size": 14,
+      "transition-duration": 250,
+      "modules": [
+        {
+          "type": "screenshare",
+          "tooltip": true,
+          "tooltip-icon-size": 14,
+        },
+        {
+          "type": "audio-out",
+          "tooltip": true,
+          "tooltip-icon-size": 14,
+        },
+        {
+          "type": "audio-in",
+          "tooltip": true,
+          "tooltip-icon-size": 14,
+        },
+      ],
+    },
+    "mpris": {
+      "format": "{player_icon} {dynamic}",
+      "format-paused": "{status_icon} <i>{dynamic}</i>",
+      "max-length": 30,
+      "player-icons": {
+        "default": "󰎆 ",
+        "cmus": "",
+        "mpv": "🎵",
+        "vlc": "🎬",
+        "spotify": " ",
+      },
+      "status-icons": {
+        "paused": "⏸",
+      },
+      "on-click": "playerctl play-pause",
+      "on-click-right": "playerctl next",
+      "smooth-scrolling-threshold": 10,
+      "on-scroll-down": "playerctl previous",
+      // "ignored-players": ["cmus", "spotify"]
+    },
+    "wlr/taskbar": {
+      // "format": "{icon}",
+      "format": "{icon} {title:.16}",
+      "icon-size": 14,
+      "icon-theme": "BeautyLine",
+      "tooltip-format": "{title}",
+      "on-click": "activate",
+      "on-click-middle": "close",
+    },
+  },
+]
